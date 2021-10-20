@@ -39,6 +39,7 @@ def is_superprime(n):
 def test_is_superprime():
     assert is_superprime(317) == True
     assert is_superprime(214) == False
+    assert is_superprime(33) == True
 
 def show_menu():
     test_is_superprime()
