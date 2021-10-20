@@ -9,7 +9,39 @@ def read_list():
         lst.append(el)
     return lst
 
+def is_prime(n):
+    """
+    Afla daca un numar este prim
+    :param n: n nr natural
+    :return: Returneaza True daca n este prim, altfel False
+    """
+    if n < 2:
+        return False
+    i = 2
+    while i*i <= n:
+        if n % i == 0:
+            return False
+        i = i + 1
+    return True
+
+def is_superprime(n):
+    """
+    Afla daca un numar este superprim
+    :param n: n nr natural
+    :return: Returneaza True daca n este superprim, altfel False
+    """
+    while n > 0:
+        if not is_prime(n):
+            return False
+        n = n // 10
+    return True
+
+def test_is_superprime():
+    assert is_superprime(317) == True
+    assert is_superprime(214) == False
+
 def show_menu():
+    test_is_superprime()
     '''
     Printeaza meniul
     :return:
@@ -43,5 +75,6 @@ def main():
             break
         else:
             print("Comanda invalida!")
+        cmd = input('Selectati o alta comanda: ')
 
 main()
